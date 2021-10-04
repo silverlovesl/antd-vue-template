@@ -10,7 +10,7 @@
       <div class="login-view__description">Input your sub title here XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</div>
     </div>
     <div class="login-view__form-wrap">
-      <a-form :label-col="state.labelCol" :wrapper-col="state.wrapperCol">
+      <a-form :label-col="state.labelCol" :wrapper-col="state.wrapperCol" :autocomplete="false">
         <a-form-item v-bind="validateInfos.email">
           <a-input size="large" v-model:value="modelRef.email" placeholder="Email">
             <template #prefix>
@@ -27,13 +27,13 @@
         </a-form-item>
       </a-form>
       <a-row>
-        <a-col :span="12" class="">
-          <a-checkbox>Remember me</a-checkbox>
+        <a-col :span="12">
+          <a-checkbox class="g-text-left">Remember me</a-checkbox>
         </a-col>
         <a-col :span="12" class="g-text-right">
           <a>Forgot password ?</a>
         </a-col>
-        <a-col :span="24" class="g-text-right g-mt-md">
+        <a-col :span="24" class="g-mt-md">
           <a-button type="primary" htmlType="submit" block size="large" @click="onSubmit" :loading="state.loading">Login</a-button>
         </a-col>
       </a-row>

@@ -110,7 +110,7 @@ export default AuthedLayout;
     line-height: 48px;
     & > .trigger {
       font-size: 18px;
-      height: 48px;
+      height: 24px;
       padding: 0 18px;
       cursor: pointer;
       transition: color 0.3s;
