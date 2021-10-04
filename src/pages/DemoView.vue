@@ -1,5 +1,8 @@
 <template>
-  <section>Demo View</section>
+  <section>
+    Demo View
+    <a-button type="primary">Button</a-button>
+  </section>
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';

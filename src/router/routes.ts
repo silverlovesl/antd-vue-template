@@ -4,7 +4,7 @@ const pageChildrenRoutes = [
   {
     path: '',
     name: 'page-root',
-    component: () => import('../pages/demo.vue'),
+    component: () => import('../pages/DemoView.vue'),
   },
 ];
 
