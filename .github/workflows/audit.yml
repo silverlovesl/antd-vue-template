@@ -11,9 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Test
-        run: |
-          echo Testing
+        run: echo Testing
 
       - name: audit
-        run: |
-          yarn audit
+        run: yarn audit
