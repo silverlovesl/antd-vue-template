@@ -1,0 +1,16 @@
+name: audit
+description: 'To run yarn audit for the PR and create a github issue if high vulnerabilities existed'
+
+on:
+  pull_request:
+    types:
+      - opened
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Test
+    - run: |
+        echo Testing
+    - name: audit
+    - run: |
+        yarn audit
