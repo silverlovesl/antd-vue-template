@@ -24,9 +24,8 @@ jobs:
           rm -rf node_modules
           yarn install
 
+      - name: Yarn Audit
+        run: yarn audit
+
       - name: Test
         run: echo Testing
-
-      - name: Audit
-        run: |-
-          yarn audit
