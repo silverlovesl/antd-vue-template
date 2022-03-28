@@ -2,6 +2,7 @@ name: audit
 description: 'To run yarn audit for the PR and create a github issue if high vulnerabilities existed'
 
 on:
+  push:
   pull_request:
     types:
       - opened
