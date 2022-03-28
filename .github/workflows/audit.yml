@@ -13,6 +13,7 @@ jobs:
       - name: Install dependency
         run: |-
           rm -rf node_modules
+          yarn install
 
       - name: Test
         run: echo Testing
