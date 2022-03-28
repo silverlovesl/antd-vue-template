@@ -25,11 +25,7 @@ jobs:
           yarn install
 
       - name: Yarn Audit
-        uses: pragatheeswarans/yarn-audit-action@v1.0.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          label: 'vulnerability'
-          title: 'Some title'
+        run: yarn audit && true
 
       - name: Test
         run: echo Testing
