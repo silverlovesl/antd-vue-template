@@ -6,11 +6,12 @@ on:
     types:
       - opened
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Test
-    - run: |
-        echo Testing
-    - name: audit
-    - run: |
-        yarn audit
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+      - run: |
+          echo Testing
+      - name: audit
+      - run: |
+          yarn audit
