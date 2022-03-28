@@ -15,16 +15,23 @@ jobs:
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
-        # with:
-        #   node-version: ${{ matrix.node-version }}
-        #   registry-url: 'https://registry.npmjs.org'
-        #   cache: 'yarn'
-
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'yarn'
       - name: Install dependencies
         run: |-
           rm -rf node_modules
           yarn install
-          yarn audit --level high
+
+      - name: Yarn Audit
+        uses: pragatheeswarans/yarn-audit-action@v1.0.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          assignee: 'ASSIGNEE NAME'
+          label: 'LABEL'
+          title: 'ISSUE TITLE'
+          description: 'ISSUE DESCRIPION'
 
       - name: Test
         run: echo Testing
