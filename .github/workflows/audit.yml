@@ -10,14 +10,15 @@ jobs:
     name: 'Pull Request'
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependency
+      - name: Install dependencies
         run: |-
           rm -rf node_modules
           yarn install
+          yarn audit
 
       - name: Test
         run: echo Testing
 
-      - name: audit
-        run: |-
-          yarn audit
+      # - name: Audit
+      #   run: |-
+      #     yarn audit
