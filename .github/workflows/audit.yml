@@ -24,9 +24,7 @@ jobs:
         run: |-
           rm -rf node_modules
           yarn install
-
-      - name: Yarn Audit
-        run: yarn audit --level high
+          yarn audit --level high
 
       - name: Test
         run: echo Testing
