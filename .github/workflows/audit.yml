@@ -7,11 +7,13 @@ on:
       - opened
 jobs:
   test:
+    name: 'Pull Request'
     runs-on: ubuntu-latest
     steps:
       - name: Test
-      - run: |
+        run: |
           echo Testing
+
       - name: audit
-      - run: |
+        run: |
           yarn audit
