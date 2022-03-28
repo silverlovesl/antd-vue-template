@@ -26,7 +26,7 @@ jobs:
           yarn install
 
       - name: Yarn Audit
-        run: yarn audit
+        run: yarn audit --level high
 
       - name: Test
         run: echo Testing
