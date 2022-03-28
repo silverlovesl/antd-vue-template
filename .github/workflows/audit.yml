@@ -1,5 +1,4 @@
-name: audit
-description: 'To run yarn audit for the PR and create a github issue if high vulnerabilities existed'
+name: Audit
 
 on:
   push:
