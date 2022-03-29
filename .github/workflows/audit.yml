@@ -28,14 +28,11 @@ jobs:
       - name: Audit
         id: yarn-audit
         run: |-
-          set +e
-          yarn audit --level high
-          set -e
-          echo '${{ steps.yarn-audit.outputs.var }}'
+          yarn audit --level high > ./AUDIO_OUTPUT
 
-      # - name: Create vulnerability issue report
-      #   run: |-
-      #     echo '${{ steps.yarn-audit.outputs.var }}'
+      - name: Create vulnerability issue report
+        run: |-
+          cat ./AUDIO_OUTPUT
 
       - name: Run Test
         run: echo run your test code
