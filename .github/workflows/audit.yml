@@ -39,9 +39,9 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.number }}
         with:
-          issue-number: PR-$PR_NUMBER
+          issue-number: PR- $PR_NUMBER
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: PR-$PR_NUMBER
+          title: PR - $PR_NUMBER
           content-filepath: ./AUDIO_OUTPUT
           labels: |
             vulnerability
