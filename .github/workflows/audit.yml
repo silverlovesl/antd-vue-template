@@ -6,7 +6,7 @@ on:
     types:
       - opened
 jobs:
-  test:
+  Audit:
     name: 'Pull Request'
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +28,7 @@ jobs:
           rm -rf node_modules
           yarn install
 
-      - name: Audit
+      - name: Do Audit
         run: |-
           set +e
           yarn audit --json --level high | jq -c '.[]' > ./AUDIO_OUTPUT
@@ -36,10 +36,12 @@ jobs:
 
       - name: Create vulnerability issue report
         uses: peter-evans/create-issue-from-file@v4
+        env:
+          PR_NUMBER: ${{ github.event.number }}
         with:
-          issue-number: PR-${{ github.event.number }}
+          issue-number: PR-$PR_NUMBER
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: PR-${{ github.event.number }}
+          title: PR-$PR_NUMBER
           content-filepath: ./AUDIO_OUTPUT
           labels: |
             vulnerability
