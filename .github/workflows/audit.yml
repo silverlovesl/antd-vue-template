@@ -31,10 +31,11 @@ jobs:
           set +e
           yarn audit --level high
           set -e
-
-      - name: Create issue
-        run: |-
           echo '${{ steps.yarn-audit.outputs.var }}'
+
+      # - name: Create vulnerability issue report
+      #   run: |-
+      #     echo '${{ steps.yarn-audit.outputs.var }}'
 
       - name: Run Test
         run: echo run your test code
