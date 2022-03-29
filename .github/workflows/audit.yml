@@ -31,7 +31,7 @@ jobs:
       - name: Audit
         run: |-
           set +e
-          yarn audit --json --level high | jq '.[]' > ./AUDIO_OUTPUT
+          yarn audit --json --level high | jq -c '.[]' > ./AUDIO_OUTPUT
           set -e
 
       - name: Create vulnerability issue report
