@@ -19,16 +19,22 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
+
       - name: Install dependencies
         run: |-
           rm -rf node_modules
           yarn install
 
-      - name: Yarn Audit
+      - name: Audit
+        id: yarn-audit
         run: |-
           set +e
-          yarn audit && true
+          yarn audit --level high
           set -e
 
-      - name: Test
-        run: echo Testing
+      - name: Create issue
+        run: |-
+          echo '${{ steps.yarn-audit.outputs.var }}'
+
+      - name: Run Test
+        run: echo run your test code
