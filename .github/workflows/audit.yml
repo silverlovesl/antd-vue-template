@@ -20,13 +20,15 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           cache: 'yarn'
 
+      - name: 'Use jq'
+        uses: sergeysova/jq-action@v2
+
       - name: Install dependencies
         run: |-
           rm -rf node_modules
           yarn install
 
       - name: Audit
-        uses: sergeysova/jq-action@v2
         run: |-
           set +e
           yarn audit --json --level high | jq '.[]' > ./AUDIO_OUTPUT
