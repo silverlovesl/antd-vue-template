@@ -25,7 +25,10 @@ jobs:
           yarn install
 
       - name: Yarn Audit
-        run: yarn audit && true
+        run: |-
+          set +e
+          yarn audit && true
+          set -e
 
       - name: Test
         run: echo Testing
