@@ -39,7 +39,7 @@ jobs:
         with:
           issue-number: PR-${{ github.event.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: Dependency vulnerability
+          title: PR-${{ github.event.number }}
           content-filepath: ./AUDIO_OUTPUT
           labels: |
             vulnerability
