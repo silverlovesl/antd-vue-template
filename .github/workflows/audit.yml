@@ -25,21 +25,29 @@ jobs:
           rm -rf node_modules
           yarn install
 
-      - name: Audit
-        run: |-
-          set +e
-          yarn audit --level high > ./AUDIO_OUTPUT
-          set -e
+      # - name: Audit
+      #   run: |-
+      #     set +e
+      #     yarn audit --level high > ./AUDIO_OUTPUT
+      #     set -e
 
-      - name: Create vulnerability issue report
-        uses: peter-evans/create-issue-from-file@v4
+      # - name: Create vulnerability issue report
+      #   uses: peter-evans/create-issue-from-file@v4
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     title: Dependency vulnerability
+      #     content-filepath: ./AUDIO_OUTPUT
+      #     labels: |
+      #       vulnerability
+      #       automated
+
+      - name: Yarn Audit
+        uses: pragatheeswarans/yarn-audit-action@v1.0.0
         with:
-          title: Dependency vulnerability
-          content-filepath: ./AUDIO_OUTPUT
-          labels: |
-            dependency
-            vulnerability issue
-            automated
+          token: ${{ secrets.GITHUB_TOKEN }}
+          label: 'yarn audit test'
+          title: 'ISSUE TITLE'
+          description: 'ISSUE DESCRIPION'
 
       - name: Run Test
         run: echo run your test code
