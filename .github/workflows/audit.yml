@@ -37,6 +37,7 @@ jobs:
       - name: Create vulnerability issue report
         uses: peter-evans/create-issue-from-file@v4
         with:
+          issue-number: PR-${{ github.event.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
           title: Dependency vulnerability
           content-filepath: ./AUDIO_OUTPUT
