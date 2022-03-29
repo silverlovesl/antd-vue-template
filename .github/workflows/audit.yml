@@ -28,7 +28,9 @@ jobs:
       - name: Audit
         id: yarn-audit
         run: |-
+          set +e
           yarn audit --level high > ./AUDIO_OUTPUT
+          set -e
 
       - name: Create vulnerability issue report
         run: |-
